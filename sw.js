@@ -1,11 +1,12 @@
 // EDU offline support + quick-add notification.
 // Everything the app needs is saved on the phone, so it works with no signal.
-const CACHE = 'edu-v3';
+const CACHE = 'edu-v4';
 const CORE = ['./', './index.html', './privacy.html', './manifest.webmanifest',
-  './icon-192.png', './icon-512.png', './apple-touch-icon.png', './sc-in.png', './sc-out.png'];
+  './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
+  // Save each file on its own, so one missing file never stops the app from working offline.
+  e.waitUntil(caches.open(CACHE).then(c => Promise.allSettled(CORE.map(u => c.add(u)))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
@@ -42,7 +43,7 @@ function showQuick() {
   return self.registration.showNotification('EDU – quick add', {
     body: 'Tap a button to add money in or money out.',
     tag: QUICK_TAG, renotify: false, silent: true, requireInteraction: true,
-    icon: 'icon-192.png', badge: 'sc-in.png',
+    icon: 'icon-192.png', badge: 'icon-192.png',
     actions: [{ action: 'in', title: '＋ Money In' }, { action: 'out', title: '－ Money Out' }],
     data: { quick: true }
   });
