@@ -1,0 +1,90 @@
+{
+  "name": "EDU – Every Day Use",
+  "short_name": "EDU",
+  "description": "EDU (Every Day Use): a simple money book. Money in, money out, people who owe, projects and saving jars.",
+  "start_url": "./index.html?source=app",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF2F6",
+  "theme_color": "#178A5B",
+  "categories": [
+    "finance",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "./",
+  "shortcuts": [
+    {
+      "name": "Money In",
+      "short_name": "＋ Money In",
+      "description": "Add money you got",
+      "url": "./index.html?add=in",
+      "icons": [
+        {
+          "src": "sc-in.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Money Out",
+      "short_name": "－ Money Out",
+      "description": "Add money you spent",
+      "url": "./index.html?add=out",
+      "icons": [
+        {
+          "src": "sc-out.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Can I buy this?",
+      "short_name": "Can I buy?",
+      "description": "Check if you can afford something",
+      "url": "./index.html?add=ask",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "People who owe",
+      "short_name": "People",
+      "description": "Who owes you, who you owe",
+      "url": "./index.html?add=people",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
